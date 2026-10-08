@@ -4,14 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2026 북커톤 프로젝트</title>
+
+  <!-- 북커톤(책 + 반짝이는 아이디어) 테마의 고해상도 벡터 파비콘 -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='bookGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234F46E5'/%3E%3Cstop offset='100%25' stop-color='%2306B6D4'/%3E%3C/defs%3E%3ClinearGradient id='sparkGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FBBF24'/%3E%3Cstop offset='100%25' stop-color='%23F59E0B'/%3E%3C/defs%3E%3Cfilter id='glow' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeDropShadow dx='0' dy='2' stdDeviation='3' flood-color='%23000' flood-opacity='0.25'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23glow)'%3E%3C!-- 책 페이지 왼쪽 --%3E%3Cpath d='M32 24 C24 19 14 19 6 22 L6 50 C14 47 24 47 32 52 Z' fill='%23EEF2F6' stroke='%23334155' stroke-width='1.5'/%3E%3C!-- 책 페이지 오른쪽 --%3E%3Cpath d='M32 24 C40 19 50 19 58 22 L58 50 C50 47 40 47 32 52 Z' fill='%23FFFFFF' stroke='%23334155' stroke-width='1.5'/%3E%3C!-- 책 표지 받침대 (그라데이션) --%3E%3Cpath d='M4 51 C14 48 24 48 32 53 C40 48 50 48 60 51 L60 55 C50 52 40 52 32 57 C24 52 14 52 4 55 Z' fill='url(%23bookGrad)'/%3E%3C!-- 중앙 책등 구분선 --%3E%3Cpath d='M32 24 L32 53' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round'/%3E%3C!-- 북커톤 창의성/아이디어 스파크 (상단 별빛) --%3E%3Cpath d='M32 6 L34.5 13.5 L42 16 L34.5 18.5 L32 26 L29.5 18.5 L22 16 L29.5 13.5 Z' fill='url(%23sparkGrad)'/%3E%3Ccircle cx='46' cy='10' r='2' fill='%23FBBF24'/%3E%3Ccircle cx='18' cy='12' r='1.5' fill='%2338BDF8'/%3E%3C/g%3E%3C/svg%3E">
+
+  <!-- 모바일 바로가기용 애플 터치 아이콘 대응 -->
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234F46E5'/%3E%3Cpath d='M32 22 C24 17 14 17 8 20 L8 46 C14 43 24 43 32 48 C40 43 50 43 56 46 L56 20 C50 17 40 17 32 22 Z' fill='%23FFFFFF'/%3E%3Cpath d='M32 8 L34 14 L40 16 L34 18 L32 24 L30 18 L24 16 L30 14 Z' fill='%23FBBF24'/%3E%3C/svg%3E">
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
+      background-color: #ffffff;
     }
     iframe {
       width: 100%;
@@ -21,8 +31,13 @@
     }
   </style>
 </head>
+
 <body>
-  <!-- 여기에 리다이렉트 코드 없이 오직 iframe만 있어야 합니다 -->
-  <iframe src="https://script.google.com/macros/s/AKfycbxNSpaYo8Si_N-Ga6OO6xqEMYD4uiNPkx0tFuM12Wg1fWj-MPtByxDtYDRZ7zKbZ25DWA/exec" allowfullscreen></iframe>
+  <!-- 구글 앱스 스크립트 웹앱 임베드 영역 -->
+  <iframe 
+    src="https://script.google.com/macros/s/AKfycbxNSpaYo8Si_N-Ga6OO6xqEMYD4uiNPkx0tFuM12Wg1fWj-MPtByxDtYDRZ7zKbZ25DWA/exec" 
+    allowfullscreen
+    loading="eager">
+  </iframe>
 </body>
 </html>
