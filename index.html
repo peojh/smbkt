@@ -5,11 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2026 북커톤 프로젝트</title>
 
-  <!-- 북커톤(책 + 반짝이는 아이디어) 테마의 고해상도 벡터 파비콘 -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='bookGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234F46E5'/%3E%3Cstop offset='100%25' stop-color='%2306B6D4'/%3E%3C/defs%3E%3ClinearGradient id='sparkGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FBBF24'/%3E%3Cstop offset='100%25' stop-color='%23F59E0B'/%3E%3C/defs%3E%3Cfilter id='glow' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeDropShadow dx='0' dy='2' stdDeviation='3' flood-color='%23000' flood-opacity='0.25'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23glow)'%3E%3C!-- 책 페이지 왼쪽 --%3E%3Cpath d='M32 24 C24 19 14 19 6 22 L6 50 C14 47 24 47 32 52 Z' fill='%23EEF2F6' stroke='%23334155' stroke-width='1.5'/%3E%3C!-- 책 페이지 오른쪽 --%3E%3Cpath d='M32 24 C40 19 50 19 58 22 L58 50 C50 47 40 47 32 52 Z' fill='%23FFFFFF' stroke='%23334155' stroke-width='1.5'/%3E%3C!-- 책 표지 받침대 (그라데이션) --%3E%3Cpath d='M4 51 C14 48 24 48 32 53 C40 48 50 48 60 51 L60 55 C50 52 40 52 32 57 C24 52 14 52 4 55 Z' fill='url(%23bookGrad)'/%3E%3C!-- 중앙 책등 구분선 --%3E%3Cpath d='M32 24 L32 53' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round'/%3E%3C!-- 북커톤 창의성/아이디어 스파크 (상단 별빛) --%3E%3Cpath d='M32 6 L34.5 13.5 L42 16 L34.5 18.5 L32 26 L29.5 18.5 L22 16 L29.5 13.5 Z' fill='url(%23sparkGrad)'/%3E%3Ccircle cx='46' cy='10' r='2' fill='%23FBBF24'/%3E%3Ccircle cx='18' cy='12' r='1.5' fill='%2338BDF8'/%3E%3C/g%3E%3C/svg%3E">
+  <!-- 파비콘 링크 태그 (기본 이모지 SVG fallback) -->
+  <link rel="icon" id="favicon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+  <link rel="shortcut icon" id="shortcut-favicon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
 
-  <!-- 모바일 바로가기용 애플 터치 아이콘 대응 -->
-  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234F46E5'/%3E%3Cpath d='M32 22 C24 17 14 17 8 20 L8 46 C14 43 24 43 32 48 C40 43 50 43 56 46 L56 20 C50 17 40 17 32 22 Z' fill='%23FFFFFF'/%3E%3Cpath d='M32 8 L34 14 L40 16 L34 18 L32 24 L30 18 L24 16 L30 14 Z' fill='%23FBBF24'/%3E%3C/svg%3E">
+  <script>
+    (function setCustomFavicon() {
+      try {
+        // 64x64 캔버스 생성 (고해상도 탭 파비콘 렌더링)
+        var canvas = document.createElement('canvas');
+        canvas.width = 64;
+        canvas.height = 64;
+        var ctx = canvas.getContext('2d');
+
+        if (!ctx) return;
+
+        // 1. 둥근 모서리의 프리미엄 배경 (인디고 블루)
+        var r = 14;
+        ctx.beginPath();
+        ctx.moveTo(r, 0);
+        ctx.lineTo(64 - r, 0);
+        ctx.quadraticCurveTo(64, 0, 64, r);
+        ctx.lineTo(64, 64 - r);
+        ctx.quadraticCurveTo(64, 64, 64 - r, 64);
+        ctx.lineTo(r, 64);
+        ctx.quadraticCurveTo(0, 64, 0, 64 - r);
+        ctx.lineTo(0, r);
+        ctx.quadraticCurveTo(0, 0, r, 0);
+        ctx.closePath();
+
+        var bgGrad = ctx.createLinearGradient(0, 0, 64, 64);
+        bgGrad.addColorStop(0, '#4338CA'); // 로열 인디고
+        bgGrad.addColorStop(1, '#1E1B4B'); // 딥 나이트
+        ctx.fillStyle = bgGrad;
+        ctx.fill();
+
+        // 2. 펼쳐진 책 그래픽 드로잉
+        ctx.fillStyle = '#FFFFFF';
+        // 왼쪽 페이지
+        ctx.beginPath();
+        ctx.moveTo(32, 28);
+        ctx.quadraticCurveTo(20, 24, 10, 27);
+        ctx.lineTo(10, 48);
+        ctx.quadraticCurveTo(20, 45, 32, 50);
+        ctx.closePath();
+        ctx.fill();
+
+        // 오른쪽 페이지
+        ctx.fillStyle = '#E2E8F0';
+        ctx.beginPath();
+        ctx.moveTo(32, 28);
+        ctx.quadraticCurveTo(44, 24, 54, 27);
+        ctx.lineTo(54, 48);
+        ctx.quadraticCurveTo(44, 45, 32, 50);
+        ctx.closePath();
+        ctx.fill();
+
+        // 책 등 (가운데 축)
+        ctx.strokeStyle = '#94A3B8';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(32, 28);
+        ctx.lineTo(32, 50);
+        ctx.stroke();
+
+        // 3. 북커톤 영감/아이디어 스파크 (황금빛 별빛)
+        ctx.fillStyle = '#FBBF24';
+        ctx.beginPath();
+        var cx = 32, cy = 15;
+        ctx.moveTo(cx, cy - 8);
+        ctx.lineTo(cx + 2.5, cy - 2.5);
+        ctx.lineTo(cx + 8, cy);
+        ctx.lineTo(cx + 2.5, cy + 2.5);
+        ctx.lineTo(cx, cy + 8);
+        ctx.lineTo(cx - 2.5, cy + 2.5);
+        ctx.lineTo(cx - 8, cy);
+        ctx.lineTo(cx - 2.5, cy - 2.5);
+        ctx.closePath();
+        ctx.fill();
+
+        // 작은 반짝임 점 2개
+        ctx.beginPath();
+        ctx.arc(46, 12, 1.8, 0, Math.PI * 2);
+        ctx.arc(18, 14, 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#38BDF8';
+        ctx.fill();
+
+        // 4. PNG DataURL 추출 후 파비콘 태그에 즉시 주입 (캐시 강제 갱신)
+        var pngData = canvas.toDataURL('image/png');
+        var link = document.getElementById('favicon') || document.createElement('link');
+        link.type = 'image/png';
+        link.rel = 'icon';
+        link.href = pngData;
+        document.getElementsByTagName('head')[0].appendChild(link);
+
+        var shortcutLink = document.getElementById('shortcut-favicon') || document.createElement('link');
+        shortcutLink.type = 'image/png';
+        shortcutLink.rel = 'shortcut icon';
+        shortcutLink.href = pngData;
+        document.getElementsByTagName('head')[0].appendChild(shortcutLink);
+      } catch (e) {
+        console.warn('Favicon generation error:', e);
+      }
+    })();
+  </script>
 
   <style>
     * {
